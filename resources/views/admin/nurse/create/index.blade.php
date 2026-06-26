@@ -15,7 +15,7 @@
                         @endforeach
                     </ul>
                 @endif
-                <form action ="{{ route('nuse.store') }}" method="POST" enctype="multipart/form-data">
+                <form action ="{{ route('nurse.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -53,6 +53,17 @@
                         <div class="form-group">
                             <label>Experiencia</label>
                             <input class="form-control" type="text" name="experience" placeholder="Experiencia">
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <!--option tag para opcao ou selação-->
+                                <label>Género <span class="text-danger">*</span></label>
+                                <select name="gender" class="form-control">
+                                    <option value="">Seleccione</option>
+                                    <option value="Masculino" {{ old('gender') == 'Masculino' ? 'selected' : '' }}>Masculino</option>
+                                    <option value="Feminino" {{ old('gender') == 'Feminino' ? 'selected' : '' }}>Feminino</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Biografia</label>
