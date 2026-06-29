@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NurseController;
-
+use App\Http\Controllers\ScreeningController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +47,12 @@ Route::get('/nurse/{id}/edit', 'NurseController@edit')->name('nurse.edit');
 Route::get('/nurse/{id}', 'NurseController@show')->name('nurse.show');
 Route::put('/nurse/{id}', 'NurseController@update')->name('nurse.update');
 Route::delete('/nurse/delete/{id}', 'NurseController@destroy')->name('nurse.delete');
+
+Route::get('/screening', 'ScreeningController@index')->name('screening.index');
+Route::get('/screening/create', 'ScreeningController@create')->name('screening.create');
+Route::post('/screening', 'ScreeningController@store')->name('screening.store');
+Route::get('/screening/{id}/edit', 'ScreeningController@edit')->name('screening.edit');
+Route::get('/screening/{id}', 'ScreeningController@show')->name('screening.show');
+Route::put('/screening/{id}', 'ScreeningController@update')->name('screening.update');
+Route::delete('/screening/delete/{id}', 'ScreeningController@destroy')->name('screening.delete');
+

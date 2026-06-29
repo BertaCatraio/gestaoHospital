@@ -19,18 +19,18 @@
                         <li class="{{ request()->is('nurse*') ? 'active' : '' }}">
                             <a href="/nurse"><i class="fa fa-user-md"></i> <span>Enfemeiros</span></a>
                         </li>
-                <li>
-                    <a href="appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                </li>
-                <li>
-                    <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
-                </li>
-                <li>
-                    <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
+                        <li>
+                             <a href="appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                        </li>
+                        <li>
+                             <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+                        </li>
+                        <li>
+                            <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        </li>
+                     <li class="submenu">
+                        <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
+                     <ul style="display: none;">
                         <li><a href="employees.html">Employees List</a></li>
                         <li><a href="leaves.html">Leaves</a></li>
                         <li><a href="holidays.html">Holidays</a></li>

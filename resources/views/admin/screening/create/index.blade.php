@@ -31,7 +31,7 @@
                                 <label>Paciente <span class="text-danger">*</span></label>
                                 <select name="patient_id" class="form-control">
                                     <option value="">Selecione o Paciente</option>
-                                    @foreach ($patients as $patient)
+                                    @foreach ($screenings as $screening)
                                         <option value="{{ $patient->id }}"
                                             {{ old('patient_id') == $patient->id ? 'selected' : '' }}>
                                             {{ $patient->name }}
@@ -76,9 +76,7 @@
                                 <textarea name="observation" class="form-control" rows="3" placeholder="Obs:">{{ old('observation') }}</textarea>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="m-t-20 text-center">
                         <a href="/screening" class="btn btn-secondary m-r-10">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Guardar Triagem</button>

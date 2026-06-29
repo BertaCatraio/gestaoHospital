@@ -2,7 +2,7 @@
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use app\Model\Doctor;
-use App\Model\patient;
+use app\Model\patient;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Doctor extends Model
