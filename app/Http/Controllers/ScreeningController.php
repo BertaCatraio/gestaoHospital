@@ -23,19 +23,21 @@ class ScreeningController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'temperature'       => 'required|string',
-            'weight'            => 'required|decimal',
-            'heartbeat'          => 'required|string',
-            'bood_pressure'     => 'required|string',
-            'observation'       => 'required|integer'
+            'patient_id'     => 'required|integer',
+            'temperature'    => 'required|numeric',
+            'weight'         => 'required|numeric',
+            'heartbeat'      => 'required|string',
+            'bood_pressure' => 'required|string',
+            'observation'    => 'nullable|string',
         ]);
 
-            Screening::create([
-                'temperature'  => $request->temperature,
-                'weight'      => $request->weight,
-                'heartbeat'   => $request->heatbeat,
-                'bood_pressure' => $request->bood_pressure,
-                'observation'   => $request->observation,
+        Screening::create([
+            'patient_id'     => $request->patient_id,
+            'temperature'    => $request->temperature,
+            'weight'         => $request->weight,
+            'heartbeat'      => $request->heartbeat,
+            'bood_pressure' => $request->blood_pressure,
+            'observation'    => $request->observation,
         ]);
 
         return redirect('/screening')->with('success', 'Triagem cadastrado com sucesso!');
@@ -44,36 +46,37 @@ class ScreeningController extends Controller
     public function show($id)
     {
         $screening = Screening::findOrFail($id);
-        return view('admin.screening.show.index', compact('patient'));
+        return view('admin.screening.show.index', compact('screening'));
     }
 
     public function edit($id)
     {
         $screening = Screening::findOrFail($id);
-        return view('admin.screening.edit.index', compact('screening', 'screening'));
+        return view('admin.screening.edit.index', compact('screening'));
     }
 
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'temperature'             => 'required|string',
-            'weight'            => 'required|decimal',
-            'heartbeat'   => 'required|string',
+            'patient_id'     => 'required|integer',
+            'temperature'    => 'required|numeric',
+            'weight'         => 'required|numeric',
+            'heartbeat'      => 'required|string',
             'bood_pressure' => 'required|string',
-            'observation' => 'required|string',
+            'observation'    => 'nullable|string',
         ]);
 
         $screening = Screening::findOrFail($id);
         $screening->update([
-            'temperature'  =>'requerid|string',
-            'weight'       => 'requerid|string',
-            'heartbeat'     => 'requirid|string',
-            'bood_pressure'  => 'requirid|string',
-            'observation'     => 'requirid|string',
-
+            'patient_id'     => $request->patient_id,
+            'temperature'    => $request->temperature,
+            'weight'         => $request->weight,
+            'heartbeat'      => $request->heartbeat,
+            'bood_pressure' => $request->blood_pressure,
+            'observation'    => $request->observation,
         ]);
 
-        return redirect('/screening')->with('success', 'triagem actualizado com sucesso!');
+        return redirect('/screening')->with('success', 'Triagem actualizado com sucesso!');
     }
 
     public function destroy($id)
@@ -81,7 +84,6 @@ class ScreeningController extends Controller
         $screening = Screening::findOrFail($id);
         $screening->delete();
 
-        return redirect('/screening')->with('success_delete', 'triagem eliminado com sucesso!');
+        return redirect('/screening')->with('success_delete', 'Triagem eliminado com sucesso!');
     }
 }
-

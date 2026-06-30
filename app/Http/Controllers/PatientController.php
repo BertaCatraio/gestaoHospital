@@ -19,6 +19,17 @@ class PatientController extends Controller
         $doctors = Doctor::all();
         return view('admin.patient.create.index', compact('doctors'));
     }
+        //metodo para adicionar botao de pesquisa na triagem
+    public function search(Request $request)
+    {
+        $term = $request->get('term');
+
+        $patients = Patient::where('name', 'LIKE', "%{$term}%")
+            ->limit(10)
+            ->get(['id', 'name']);
+
+        return response()->json($patients);
+    }
 
     public function store(Request $request)
     {

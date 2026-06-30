@@ -6,6 +6,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\ScreeningController;
+use App\Http\Controllers\QueriestypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ use App\Http\Controllers\ScreeningController;
 Route::get('/', 'DashboardController@index');
 Route::get('/dashboard', 'DashboardController@index');
 /*Routa Patient*/
-route::delete('/Patients/{id}','PatientController@destroy');
 Route::get('/patient', 'PatientController@index');
+Route::get('/patient/search', 'PatientController@search')->name('patient.search');
 Route::get('/patient/create', 'PatientController@create');
 Route::post('/patient', 'PatientController@store')->name('patient.store');
 Route::get('/patient/edit/{id}', 'PatientController@edit')->name('patient.edit');
@@ -39,7 +40,7 @@ Route::get('/doctor/edit/{id}', 'DoctorController@edit')->name('doctor.edit');
 Route::put('/doctor/update/{id}', 'DoctorController@update')->name('doctor.update');
 Route::delete('/doctor/delete/{id}', 'DoctorController@destroy')->name('doctor.delete');
 Route::get('/doctor/show/{id}', 'DoctorController@show')->name('doctor.show');
-
+//Routa dos doctores
 Route::get('/nurse', 'NurseController@index')->name('nurse.index');
 Route::get('/nurse/create', 'NurseController@create')->name('nurse.create');
 Route::post('/nurse', 'NurseController@store')->name('nurse.store');
@@ -47,7 +48,7 @@ Route::get('/nurse/{id}/edit', 'NurseController@edit')->name('nurse.edit');
 Route::get('/nurse/{id}', 'NurseController@show')->name('nurse.show');
 Route::put('/nurse/{id}', 'NurseController@update')->name('nurse.update');
 Route::delete('/nurse/delete/{id}', 'NurseController@destroy')->name('nurse.delete');
-
+//routa da triagem
 Route::get('/screening', 'ScreeningController@index')->name('screening.index');
 Route::get('/screening/create', 'ScreeningController@create')->name('screening.create');
 Route::post('/screening', 'ScreeningController@store')->name('screening.store');
@@ -55,4 +56,12 @@ Route::get('/screening/{id}/edit', 'ScreeningController@edit')->name('screening.
 Route::get('/screening/{id}', 'ScreeningController@show')->name('screening.show');
 Route::put('/screening/{id}', 'ScreeningController@update')->name('screening.update');
 Route::delete('/screening/delete/{id}', 'ScreeningController@destroy')->name('screening.delete');
+//routa do tipo de consulta
+Route::get('/queriestype', 'QueriestypeController@index')->name('queriestype.index');
+Route::get('/queriestype', 'QueriestypeController@create')->name('queriestype.create');
+Route::post('/queriestype', 'QueriestypeController@store')->name('queriestype.store');
+Route::get('/queriestype/{id}/edit', 'QueriestypeController@edit')->name('queriestype.edit');
+Route::get('/queriestype/{id}', 'QueriestypeController@show')->name('queriestype.show');
+Route::put('/queriestype/{id}', 'QueriestypeController@update')->name('queriestype.update');
+Route::delete('/queriestype/delete/{id}', 'QueriestypeController@destroy')->name('queriestype.delete');
 

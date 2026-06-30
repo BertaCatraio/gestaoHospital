@@ -20,7 +20,7 @@
                             <a href="/nurse"><i class="fa fa-user-md"></i> <span>Enfemeiros</span></a>
                         </li>
                         <li>
-                             <a href="appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                             <a href="/queriestype"><i class="fa fa-calendar"></i> <span>Tipos de Consultas</span></a>
                         </li>
                         <li>
                              <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
