@@ -2,60 +2,88 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Querytype;
+use App\Model\QueriesType;
 use Illuminate\Http\Request;
 
-class QuerytypeController extends Controller
+class QueriesTypeController extends Controller
 {
+
     public function index()
     {
-        $queries_types = queriestype::all();
+        $queriestypes = QueriesType::all();
         return view('admin.queriestype.list.index', compact('queriestypes'));
     }
 
+    // Formulário de criação
     public function create()
     {
         return view('admin.queriestype.create.index');
     }
 
+    // Guardar novo tipo de consulta
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:100',
+        $request->validate([
+            'general_consultation'  => 'required|string',
+            'routine_consultation'  => 'required|string',
+            'cardiology'            => 'required|string',
+            'pediatrecs'            => 'required|string',
+            'obstetrecs'            => 'required|string',
+            'gynecology'            => 'required|string',
+            'orthopidecs'           => 'required|string',
+            'dermatology'           => 'required|string',
+            'psychiatry'            => 'required|string',
+            'ophthalmology'         => 'required|string',
+            'neurology'             => 'required|string',
+            'emergency'             => 'required|string',
         ]);
 
-        Queriestype::create([
-            'name' => $data['name'],
-        ]);
+        QueriesType::create($request->all());
 
-        return redirect('/queriestype')->with('success', 'Tipo de Consulta cadastrado com sucesso!');
+        return redirect()->route('queriestype.index')
+            ->with('success', 'Tipo de Consulta adicionado com sucesso!');
     }
 
+    // Formulário de edição
     public function edit($id)
     {
-        $queries_type = Queriestype::findOrFail($id);
-        return view('admin.queries_type.edit.index', compact('queries_type'));
+        $queriestype = QueriesType::findOrFail($id);
+        return view('admin.queriestype.edit', compact('queriestype'));
     }
 
+    // Atualizar tipo de consulta
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:100',
+        $queriestype = QueriesType::findOrFail($id);
+
+        $request->validate([
+            'general_consultation'  => 'required|string',
+            'routine_consultation'  => 'required|string',
+            'cardiology'            => 'required|string',
+            'pediatrecs'            => 'required|string',
+            'obstetrecs'            => 'required|string',
+            'gynecology'            => 'required|string',
+            'orthopidecs'           => 'required|string',
+            'dermatology'           => 'required|string',
+            'psychiatry'            => 'required|string',
+            'ophthalmology'         => 'required|string',
+            'neurology'             => 'required|string',
+            'emergency'             => 'required|string',
         ]);
 
-        $queries_type = Queriestype::findOrFail($id);
-        $queries_type->update([
-            'name' => $data['name'],
-        ]);
+        $queriestype->update($request->all());
 
-        return redirect('/queriestype')->with('success', 'Tipo de Consulta actualizado com sucesso!');
+        return redirect()->route('queriestype.index')
+            ->with('success', 'Tipo de Consulta atualizado com sucesso!');
     }
 
+    // Apagar tipo de consulta
     public function destroy($id)
     {
-        $queries_Type = Queriestype::findOrFail($id);
-        $queries_Type->delete();
+        $queriestype = QueriesType::findOrFail($id);
+        $queriestype->delete();
 
-        return redirect('/queriestype')->with('success_delete', 'Tipo de Consulta eliminado com sucesso!');
+        return redirect()->route('queriestype.index')
+            ->with('success_delete', 'Tipo de Consulta apagado com sucesso!');
     }
 }

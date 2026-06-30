@@ -6,7 +6,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\ScreeningController;
-use App\Http\Controllers\QueriestypeController;
+use App\Http\Controllers\QueriesTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,11 +57,11 @@ Route::get('/screening/{id}', 'ScreeningController@show')->name('screening.show'
 Route::put('/screening/{id}', 'ScreeningController@update')->name('screening.update');
 Route::delete('/screening/delete/{id}', 'ScreeningController@destroy')->name('screening.delete');
 //routa do tipo de consulta
-Route::get('/queriestype', 'QueriestypeController@index')->name('queriestype.index');
-Route::get('/queriestype', 'QueriestypeController@create')->name('queriestype.create');
-Route::post('/queriestype', 'QueriestypeController@store')->name('queriestype.store');
-Route::get('/queriestype/{id}/edit', 'QueriestypeController@edit')->name('queriestype.edit');
-Route::get('/queriestype/{id}', 'QueriestypeController@show')->name('queriestype.show');
-Route::put('/queriestype/{id}', 'QueriestypeController@update')->name('queriestype.update');
-Route::delete('/queriestype/delete/{id}', 'QueriestypeController@destroy')->name('queriestype.delete');
+Route::get('/queriestype', 'QueriesTypeController@index')->name('queriestype.index');
+Route::get('/queriestype/create', 'QueriesTypeController@create')->name('queriestype.create');
+Route::post('/queriestype', 'QueriesTypeController@store')->name('queriestype.store');
+Route::get('/queriestype/{id}/edit', 'QueriesTypeController@edit')->name('queriestype.edit');
+Route::get('/queriestype/{id}', 'QueriesTypeController@show')->name('queriestype.show');
+Route::put('/queriestype/{id}', 'QueriesTypeController@update')->name('queriestype.update');
+Route::delete('/queriestype/delete/{id}', 'QueriesTypeController@destroy')->name('queriestype.delete');
 

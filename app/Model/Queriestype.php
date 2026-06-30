@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Queries_type extends Model
+class Queriestype extends Model
 {
-    use SoftDeletes();
+    use SoftDeletes;
 
     protected $fillable =
 
@@ -27,3 +27,4 @@ class Queries_type extends Model
         'emergency',
     ];
 }
+
