@@ -58,6 +58,7 @@ Route::put('/screening/{id}', 'ScreeningController@update')->name('screening.upd
 Route::delete('/screening/delete/{id}', 'ScreeningController@destroy')->name('screening.delete');
 //routa do tipo de consulta
 Route::get('/queriestype', 'QueriesTypeController@index')->name('queriestype.index');
+Route::get('/queriestype/search', 'QueriesTypeController@search')->name('queriestype.search');
 Route::get('/queriestype/create', 'QueriesTypeController@create')->name('queriestype.create');
 Route::post('/queriestype', 'QueriesTypeController@store')->name('queriestype.store');
 Route::get('/queriestype/{id}/edit', 'QueriesTypeController@edit')->name('queriestype.edit');

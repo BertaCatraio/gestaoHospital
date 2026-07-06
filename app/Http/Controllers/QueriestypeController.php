@@ -24,21 +24,12 @@ class QueriesTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'general_consultation'  => 'required|string',
-            'routine_consultation'  => 'required|string',
-            'cardiology'            => 'required|string',
-            'pediatrecs'            => 'required|string',
-            'obstetrecs'            => 'required|string',
-            'gynecology'            => 'required|string',
-            'orthopidecs'           => 'required|string',
-            'dermatology'           => 'required|string',
-            'psychiatry'            => 'required|string',
-            'ophthalmology'         => 'required|string',
-            'neurology'             => 'required|string',
-            'emergency'             => 'required|string',
+            'name' => 'required|string|max:255|unique:queriestypes,name',
         ]);
 
-        QueriesType::create($request->all());
+        QueriesType::create([
+            'name' => $request->name,
+        ]);
 
         return redirect()->route('queriestype.index')
             ->with('success', 'Tipo de Consulta adicionado com sucesso!');
@@ -57,21 +48,12 @@ class QueriesTypeController extends Controller
         $queriestype = QueriesType::findOrFail($id);
 
         $request->validate([
-            'general_consultation'  => 'required|string',
-            'routine_consultation'  => 'required|string',
-            'cardiology'            => 'required|string',
-            'pediatrecs'            => 'required|string',
-            'obstetrecs'            => 'required|string',
-            'gynecology'            => 'required|string',
-            'orthopidecs'           => 'required|string',
-            'dermatology'           => 'required|string',
-            'psychiatry'            => 'required|string',
-            'ophthalmology'         => 'required|string',
-            'neurology'             => 'required|string',
-            'emergency'             => 'required|string',
+            'name' => 'required|string|max:255|unique:queriestypes,name,' . $id,
         ]);
 
-        $queriestype->update($request->all());
+        $queriestype->update([
+            'name' => $request->name,
+        ]);
 
         return redirect()->route('queriestype.index')
             ->with('success', 'Tipo de Consulta atualizado com sucesso!');

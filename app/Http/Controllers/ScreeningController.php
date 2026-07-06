@@ -29,6 +29,7 @@ class ScreeningController extends Controller
             'heartbeat'      => 'required|string',
             'bood_pressure' => 'required|string',
             'observation'    => 'nullable|string',
+            'date'           => 'date'
         ]);
 
         Screening::create([
@@ -38,6 +39,7 @@ class ScreeningController extends Controller
             'heartbeat'      => $request->heartbeat,
             'bood_pressure' => $request->blood_pressure,
             'observation'    => $request->observation,
+            'date'           => $request->date
         ]);
 
         return redirect('/screening')->with('success', 'Triagem cadastrado com sucesso!');

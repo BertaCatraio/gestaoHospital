@@ -74,10 +74,15 @@
                                 <textarea name="observation" class="form-control" rows="3" placeholder="Obs:">{{ old('observation') }}</textarea>
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Data</label>
+                                <textarea name="date" class="form-control" rows="3" placeholder="data:">{{ old('date') }}</textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="m-t-20 text-center">
-                        <a href="/screening" class="btn btn-secondary m-r-10">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Guardar Triagem</button>
+                        <button class="btn btn-primary submit-btn">Adicionar tipo de Consulta</button>
                     </div>
 
                 </form>

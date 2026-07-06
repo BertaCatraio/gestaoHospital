@@ -19,6 +19,7 @@ class CreateScreeningsTable extends Migration
             $table->string('heartbeat');
             $table->string('bood_pressure');
             $table->string('observation');
+            $table->string('date');
             $table->softDeletes();
             $table->id();
             $table->timestamps();

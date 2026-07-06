@@ -12,19 +12,7 @@ class Queriestype extends Model
     protected $fillable =
 
      [
-        'follow_up_consultation',
-        'general_consultation',
-        'routine_consultation',
-        'cardiology',
-        'pediatrecs',
-        'obstetrecs',
-        'cardiology',
-        'orthopidics',
-        'dermatology',
-        'psychiatry',
-        'ophthalmology',
-        'neurology',
-        'emergency',
+        'name'
     ];
 }
 

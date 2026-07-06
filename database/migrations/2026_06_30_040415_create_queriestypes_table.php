@@ -14,18 +14,9 @@ class CreateQueriesTypesTable extends Migration
     public function up()
     {
         Schema::create('queriestypes', function (Blueprint $table) {
-
-            $table->string('general_consultation');
-            $table->string('routine_consultation');
-            $table->string('pediatrecs');
-            $table->string('obstetrecs');
-            $table->string('cardiology');
-            $table->string('orthopidics');
-            $table->string('dermatology');
-            $table->string('psychiatry');
-            $table->string('ophthalmology');
-            $table->string('neurology');
-            $table->string('emergency');
+            
+            $table->id();
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
         });
