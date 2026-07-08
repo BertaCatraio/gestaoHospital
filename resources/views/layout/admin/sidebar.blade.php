@@ -10,24 +10,26 @@
                         <li class="{{ request()->is('doctor*') ? 'active' : '' }}">
                             <a href="/doctor"><i class="fa fa-user-md"></i> <span>Doctores</span></a>
                         </li>
+                        <li class="{{ request()->is('nurse*') ? 'active' : '' }}">
+                            <a href="/nurse"><i class="fa fa-user-md"></i> <span>Enfemeiros</span></a>
+                        </li>
                         <li class="{{ request()->is('patient*') ? 'active' : '' }}">
                             <a href="/patient"><i class="fa fa-wheelchair"></i> <span>Pacientes</span></a>
                         </li>
                         <li class="{{ request()->is('screening*') ? 'active' : '' }}">
                             <a href="/screening"><i class="fa fa-wheelchair"></i> <span>Triagem</span></a>
                         </li>
-                        <li class="{{ request()->is('nurse*') ? 'active' : '' }}">
-                            <a href="/nurse"><i class="fa fa-user-md"></i> <span>Enfemeiros</span></a>
-                        </li>
                         <li>
                              <a href="/queriestype"><i class="fa fa-calendar"></i> <span>Tipos de Consultas</span></a>
                         </li>
                         <li>
-                             <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+                            <a href="/queries"><i class="fa fa-hospital-o"></i> <span>Consultas</span></a>
+
                         </li>
                         <li>
-                            <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                             <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
                         </li>
+
                      <li class="submenu">
                         <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
                      <ul style="display: none;">

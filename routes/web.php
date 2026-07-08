@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\QueriesTypeController;
+use App\Http\Controllers\QueriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,4 +66,10 @@ Route::get('/queriestype/{id}/edit', 'QueriesTypeController@edit')->name('querie
 Route::get('/queriestype/{id}', 'QueriesTypeController@show')->name('queriestype.show');
 Route::put('/queriestype/{id}', 'QueriesTypeController@update')->name('queriestype.update');
 Route::delete('/queriestype/delete/{id}', 'QueriesTypeController@destroy')->name('queriestype.delete');
-
+// routas de Consultas
+Route::get('/queries', 'QueriesController@index')->name('queries.index');
+Route::get('/queries/create', 'QueriesController@create')->name('queries.create');
+Route::post('/queries/store', 'QueriesController@store')->name('queries.store');
+Route::get('/queries/edit/{id}', 'QueriesController@edit')->name('queries.edit');
+Route::put('/queries/update/{id}', 'QueriesController@update')->name('queries.update');
+Route::delete('/queries/delete/{id}', 'QueriesController@destroy')->name('queries.destroy');
