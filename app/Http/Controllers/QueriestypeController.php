@@ -39,7 +39,7 @@ class QueriesTypeController extends Controller
     public function edit($id)
     {
         $queriestype = QueriesType::findOrFail($id);
-        return view('admin.queriestype.edit', compact('queriestype'));
+        return view('admin.queriestype.edit.index', compact('queriestype'));
     }
 
     // Atualizar tipo de consulta

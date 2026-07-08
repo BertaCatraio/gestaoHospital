@@ -37,19 +37,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Consulta Geral</th>
-                            <th>Consulta de Retorno</th>
-                            <th>Cardiologia</th>
-                            <th>Pediatria</th>
-                            <th>Obstetrícia</th>
-                            <th>Ginecologia</th>
-                            <th>Ortopedia</th>
-                            <th>Dermatologia</th>
-                            <th>Psiquiatria</th>
-                            <th>Oftalmologia</th>
-                            <th>Neurologia</th>
-                            <th>Urologia</th>
-                            <th>Emergência</th>
+                            <th>Nome</th>
                             <th class="text-right">Ação</th>
                         </tr>
                     </thead>
@@ -61,20 +49,7 @@
                         <tr>
 
                             <td>{{ $queriestype->id }}</td>
-                            <td>{{ $queriestype->general_consultation }}</td>
-                            <td>{{ $queriestype->routine_consultation }}</td>
-                            <td>{{ $queriestype->cardiology }}</td>
-                            <td>{{ $queriestype->pediatrecs }}</td>
-                            <td>{{ $queriestype->obstetrecs }}</td>
-                            <td>{{ $queriestype->gynecology }}</td>
-                            <td>{{ $queriestype->orthopidecs }}</td>
-                            <td>{{ $queriestype->dermatology }}</td>
-                            <td>{{ $queriestype->psychiatry }}</td>
-                            <td>{{ $queriestype->ophthalmology }}</td>
-                            <td>{{ $queriestype->neurology }}</td>
-                            <td>{{ $queriestype->urology }}</td>
-                            <td>{{ $queriestype->emergency }}</td>
-
+                            <td>{{ $queriestype->name }}</td>
                             <td class="text-right">
                                 <div class="dropdown dropdown-action">
 
