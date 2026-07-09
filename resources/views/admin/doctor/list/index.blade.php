@@ -18,11 +18,11 @@
 
         <div class="row">
             <div class="col-sm-4 col-3">
-                <h4 class="page-title">Paciente</h4>
+                <h4 class="page-title">Doctores</h4>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="/patient/create" class="btn btn-primary btn-rounded float-right">
-                    <i class="fa fa-plus"></i> Cadastrar Paciente
+                <a href="/doctor/create" class="btn btn-primary btn-rounded float-right">
+                    <i class="fa fa-plus"></i> Cadastrar Doctores
                 </a>
             </div>
         </div>
@@ -80,6 +80,7 @@
                             <tr>
                                 <td colspan="6" class="text-center">Nenhum doctor encontrado</td>
                             </tr>
+
                             @endforelse
                         </tbody>
                     </table>

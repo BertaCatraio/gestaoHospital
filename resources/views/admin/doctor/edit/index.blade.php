@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Nome <span class="text-danger">*</span></label>
+                            <label>Nome<span class="text-danger">*</span></label>
                             <input class="form-control" type="text" name="name" value="{{ $doctor->name }}">
                         </div>
                     </div>
@@ -24,7 +24,13 @@
                             <input class="form-control" type="text" name="phone" value="{{ $doctor->phone }}">
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Genero</label>
+                            <input class="form-control" type="text" name="gender" value="{{ $doctor->gender }}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label>Endereço</label>
                             <input type="text" class="form-control" name="address" value="{{ $doctor->address }}">
@@ -38,15 +44,20 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Foto</label>
-                            <div class="profile-upload">
-                                <div class="upload-img">
-                                    <img alt="" src="{{ asset('storage/' . $doctor->photo) }}">
-                                </div>
-                                <div class="upload-input">
-                                    <input type="file" class="form-control" name="photo">
-                                </div>
-                            </div>
+                            <label>Formação</label>
+                            <input type="text" class="form-control" name="education" value="{{ $doctor->education }}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Experiência</label>
+                            <input type="text" class="form-control" name="experience" value="{{ $doctor->experience }}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" value="{{ $doctor->email }}">
                         </div>
                     </div>
                 </div>

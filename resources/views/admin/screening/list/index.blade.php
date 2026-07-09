@@ -2,8 +2,9 @@
 @section('content')
     <div class="content">
         <div class="row">
-            <div class="col-lg-12 offset-lg-2">
+            <div class="col-lg-12">
                 <h4 class="page-title">Lista de Triagens</h4>
+
             </div>
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible" role="alert">
@@ -19,7 +20,12 @@
                     </div>
                 @endif
 
-                <div class="card">
+                <div class="card rounded shadow-sm" style="border-radius: 12px;">
+                    <div class="card-header">
+                        <a href="{{ route('screening.create') }}" class="btn btn-primary float-right" title="Nova Triagem">
+                            <i class="fa fa-plus"></i> Nova Triagem
+                        </a>
+                    </div>
                     <div class="card-body">
 
                         <div class="table-responsive">

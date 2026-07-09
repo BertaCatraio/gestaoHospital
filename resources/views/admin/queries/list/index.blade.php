@@ -2,11 +2,17 @@
 @section('content')
         <div class="page-wrapper">
             <div class="content">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Adicionar consulta</h4>
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title mb-0">Consultas</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <a href="{{ route('queries.create') }}" class="btn btn-primary btn-rounded">
+                            <i class="fa fa-plus"></i> Nova Consulta
+                        </a>
                     </div>
                 </div>
+
                 @if(session('success'))
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -14,98 +20,64 @@
                 </div>
                 @endif
 
-                @if($errors->any())
-                <div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-
                 <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <form action="{{ route('queries.store') }}" method="POST">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Paciente</label>
-                                        <select name="patient_id" class="form-control select">
-                                            <option value="">Selecione</option>
-                                            @foreach($patients as $patient)
-                                                <option value="{{ $patient->id }}">{{ $patient->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Tipo de Consulta</label>
-                                        <select name="queriestypeId" class="form-control select">
-                                            <option value="">Selecione</option>
-                                            @foreach($queriestypes as $queriestype)
-                                                <option value="{{ $queriestype->id }}">{{ $queriestype->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Médico</label>
-                                        <select name="doctor_id" class="form-control select">
-                                            <option value="">Selecione</option>
-                                            @foreach($doctors as $doctor)
-                                                <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Estado da Consulta</label>
-                                        <select name="status" class="form-control select">
-                                            <option value="agendada" selected>Agendada</option>
-                                            <option value="concluida">Concluída</option>
-                                            <option value="cancelada">Cancelada</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Data</label>
-                                        <div class="cal-icon">
-                                            <input type="date" name="date" class="form-control datetimepicker">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Horário</label>
-                                        <div class="time-icon">
-                                            <input type="time" name="time" class="form-control" id="datetimepicker3">
-                                        </div>
-                                    </div>
+                    <div class="col-md-12">
+                        <div class="card card-table">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Paciente</th>
+                                                <th>Médico</th>
+                                                <th>Tipo</th>
+                                                <th>Data</th>
+                                                <th>Hora</th>
+                                                <th>Estado</th>
+                                                <th class="text-right">Ação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse($queries as $query)
+                                            <tr>
+                                                <td>{{ $query->id }}</td>
+                                                <td>{{ $query->patient->name ?? '-' }}</td>
+                                                <td>{{ $query->doctor->name ?? '-' }}</td>
+                                                <td>{{ $query->queriesType->name ?? '-' }}</td>
+                                                <td>{{ $query->date }}</td>
+                                                <td>{{ $query->time }}</td>
+                                                <td>{{ ucfirst($query->status) }}</td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="fa fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{ route('queries.edit', $query->id) }}">
+                                                                <i class="fa fa-pencil m-r-5"></i> Editar
+                                                            </a>
+                                                            <form action="{{ route('queries.destroy', $query->id) }}" method="POST" onsubmit="return confirm('Tem a certeza que deseja eliminar esta consulta?');">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="dropdown-item">
+                                                                    <i class="fa fa-trash-o m-r-5"></i> Eliminar
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @empty
+                                            <tr>
+                                                <td colspan="8" class="text-center">Nenhuma consulta registada.</td>
+                                            </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Motivo da consulta</label>
-                                <textarea name="reason" cols="30" rows="3" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Observação</label>
-                                <textarea name="observation" cols="30" rows="4" class="form-control"></textarea>
-                            </div>
-                            <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">Cadastrar nova Consulta</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

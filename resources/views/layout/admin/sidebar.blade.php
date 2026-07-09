@@ -3,7 +3,6 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title">Main</li>
-                       <li class="active">
                         <li class="{{ request()->is('dashboard') || request()->is('/') ? 'active' : '' }}">
                             <a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
@@ -19,12 +18,11 @@
                         <li class="{{ request()->is('screening*') ? 'active' : '' }}">
                             <a href="/screening"><i class="fa fa-wheelchair"></i> <span>Triagem</span></a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('queriestype*') ? 'active' : '' }}">
                              <a href="/queriestype"><i class="fa fa-calendar"></i> <span>Tipos de Consultas</span></a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('queries*') ? 'active' : '' }}">
                             <a href="/queries"><i class="fa fa-hospital-o"></i> <span>Consultas</span></a>
-
                         </li>
                         <li>
                              <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
