@@ -36,7 +36,7 @@ class QueriesController extends Controller
     {
         $request->validate([
             'patientId' => 'required',
-            'doctor_id' => 'required',
+            'doctorId' => 'required',
             'queriestypeId' => 'required',
             'date' => 'required|date',
             'time' => 'required',
@@ -77,7 +77,7 @@ class QueriesController extends Controller
     {
         $request->validate([
             'patientId' => 'required',
-            'doctor_id' => 'required',
+            'doctorId' => 'required',
             'queriestypeId' => 'required',
             'date' => 'required|date',
             'time' => 'required',

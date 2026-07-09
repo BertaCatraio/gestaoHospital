@@ -2,27 +2,30 @@
 @section('content')
     <div class="content">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-5">
                 <h4 class="page-title">Lista de Triagens</h4>
-
             </div>
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-                        {{ session('success') }}
-                    </div>
-                @endif
+        </div>
 
-                @if (session('error'))
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-                        {{ session('error') }}
-                    </div>
-                @endif
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                {{ session('success') }}
+            </div>
+        @endif
 
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="card rounded shadow-sm" style="border-radius: 12px;">
                     <div class="card-header">
-                        <a href="{{ route('screening.create') }}" class="btn btn-primary float-right" title="Nova Triagem">
+                        <a href="{{ route('screening.create') }}" class="btn btn-primary btn-rounded float-right" title="Nova Triagem">
                             <i class="fa fa-plus"></i> Nova Triagem
                         </a>
                     </div>
@@ -81,10 +84,10 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

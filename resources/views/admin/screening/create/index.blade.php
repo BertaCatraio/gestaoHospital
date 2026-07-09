@@ -6,10 +6,6 @@
                 <h4 class="page-title">Nova Triagem</h4>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
