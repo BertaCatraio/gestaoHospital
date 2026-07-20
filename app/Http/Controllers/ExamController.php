@@ -12,7 +12,7 @@ class ExamController extends Controller
 {
     public function index()
     {
-        $exams = Exam::with(['patient', 'doctor', 'examType'])->orderBy('exam_date', 'desc')->get();
+        $exams = Exam::with(['patient', 'doctor', 'examtype'])->orderBy('exam_date', 'desc')->get();
 
         return view('admin.exam.list.index', compact('exams'));
     }
@@ -75,7 +75,7 @@ class ExamController extends Controller
         $exam->update([
             'patientId'  => $request->patientId,
             'doctorId'   => $request->doctorId,
-            'examTypeId' => $request->examTypeId,
+            'examTypeId' => $request->examTypeId,  
             'exam_date'  => $request->exam_date,
             'result'     => $request->result,
             'status'     => $request->status,
@@ -94,7 +94,7 @@ class ExamController extends Controller
 
     public function show($id)
     {
-        $exam = Exam::with(['patient', 'doctor', 'examType'])->findOrFail($id);
+        $exam = Exam::with(['patient', 'doctor', 'examtype'])->findOrFail($id);
 
         return view('admin.exam.show.index', compact('exam'));
     }

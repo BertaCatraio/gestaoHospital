@@ -103,12 +103,8 @@
                             <!-- Data -->
                             <div class="col-md-6">
                                 <div class="form-group">
-
                                     <label>Data</label>
-
-                                    <input type="date"
-                                           name="date"
-                                           class="form-control">
+                                    <input type="date" name="date"  class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -119,10 +115,7 @@
 
                                     <label>Hora</label>
 
-                                    <input type="time"
-                                           name="time"
-                                           class="form-control">
-
+                                    <input type="time"name="time" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
