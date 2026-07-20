@@ -19,10 +19,16 @@
                             <a href="/screening"><i class="fa fa-wheelchair"></i> <span>Triagem</span></a>
                         </li>
                         <li class="{{ request()->is('queriestype*') ? 'active' : '' }}">
-                             <a href="/queriestype"><i class="fa fa-calendar"></i> <span>Tipos de Consultas</span></a>
+                             <a href="/queriestype"><i class="fa-Stethoscope"></i> <span>Tipos de Consultas</span></a>
                         </li>
                         <li class="{{ request()->is('queries*') ? 'active' : '' }}">
                             <a href="/queries"><i class="fa fa-hospital-o"></i> <span>Consultas</span></a>
+                        </li>
+                        <li class="{{ request()->is('examtype*') ? 'active' : '' }}">
+                            <a href="/examtype"><i class="fa-wheelchair"></i> <span>Tipo de Exames</span></a>
+                        </li>
+                        <li class="{{ request()->is('examtype*') ? 'active' : '' }}">
+                            <a href="/exam"><i class="fa-clipboa rd-list"></i> <span>Exames</span></a>
                         </li>
                         <li>
                              <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>

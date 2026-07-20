@@ -1,16 +1,16 @@
 @extends('layout.admin.main')
-@section('title', 'tipo de consulta')
+@section('title', 'tipo de exame')
 @section('content')
 
 <div class="content">
     <div class="row">
         <div class="col-sm-4 col-3">
-            <h4 class="page-title">Tipos de Consulta</h4>
+            <h4 class="page-title">Tipos de Exames</h4>
         </div>
 
         <div class="col-sm-8 col-9 text-right m-b-20">
-            <a href="{{ route('queriestype.create') }}" class="btn btn-primary btn-rounded float-right">
-                <i class="fa fa-plus"></i> Adicionar Tipo de Consulta
+            <a href="{{ route('examtype.create') }}" class="btn btn-primary btn-rounded float-right">
+                <i class="fa fa-plus"></i> Adicionar Tipo de Exame
             </a>
         </div>
     </div>
@@ -44,12 +44,12 @@
 
                     <tbody>
 
-                        @forelse($queriestypes as $queriestype)
+                        @forelse($examtypes as $examtype)
 
                         <tr>
 
-                            <td>{{ $queriestype->id }}</td>
-                            <td>{{ $queriestype->name }}</td>
+                            <td>{{ $examtype->id }}</td>
+                            <td>{{ $examtype->name }}</td>
                             <td class="text-right">
                                 <div class="dropdown dropdown-action">
 
@@ -60,14 +60,14 @@
                                     <div class="dropdown-menu dropdown-menu-right">
 
                                         <a class="dropdown-item"
-                                            href="{{ route('queriestype.edit', $queriestype->id) }}">
+                                            href="{{ route('examtype.edit', $examtype->id) }}">
                                             <i class="fa fa-pencil m-r-5"></i> Editar
                                         </a>
 
                                         <a class="dropdown-item"
                                             href="#"
                                             data-toggle="modal"
-                                            data-target="#delete_{{ $queriestype->id }}">
+                                            data-target="#delete_{{ $examtype->id }}">
                                             <i class="fa fa-trash-o m-r-5"></i> Apagar
                                         </a>
 
@@ -79,13 +79,13 @@
                         </tr>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="delete_{{ $queriestype->id }}">
+                        <div class="modal fade" id="delete_{{ $examtype->id }}">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
 
                                     <div class="modal-body text-center">
 
-                                        <h4>Tem certeza que deseja apagar este tipo de consulta?</h4>
+                                        <h4>Tem certeza que deseja apagar este exame?</h4>
 
                                         <div class="mt-3">
 
@@ -93,7 +93,7 @@
                                                 Cancelar
                                             </button>
 
-                                            <form action="{{ route('queriestype.delete', $queriestype->id) }}"
+                                            <form action="{{ route('examtype.delete', $examtype->id) }}"
                                                 method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -131,5 +131,4 @@
     </div>
 
 </div>
-
 @endsection

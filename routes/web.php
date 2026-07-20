@@ -8,6 +8,7 @@ use App\Http\Controllers\NurseController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\QueriesTypeController;
 use App\Http\Controllers\QueriesController;
+use App\Http\Controllers\ExamtypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,8 @@ Route::delete('/patient/delete/{id}', 'PatientController@destroy')->name('patien
 Route::get('/patient/show{id}', 'PatientController@show')->name('patient.show');
 /*Routa Doctor*/
 Route::get('/doctor', 'DoctorController@index')->name('doctor.index');
-//mostra formlario
+Route::get('doctor/search', 'DoctorController@search')->name('doctor.search');
 Route::get('/doctor/create', 'DoctorController@create')->name('doctor.create');
-//guarda dados do formulario
 Route::post('/doctor/store', 'DoctorController@store')->name('doctor.store');
 Route::get('/doctor/edit/{id}', 'DoctorController@edit')->name('doctor.edit');
 Route::put('/doctor/update/{id}', 'DoctorController@update')->name('doctor.update');
@@ -73,3 +73,20 @@ Route::post('/queries/store', 'QueriesController@store')->name('queries.store');
 Route::get('/queries/edit/{id}', 'QueriesController@edit')->name('queries.edit');
 Route::put('/queries/update/{id}', 'QueriesController@update')->name('queries.update');
 Route::delete('/queries/delete/{id}', 'QueriesController@destroy')->name('queries.destroy');
+//Routas dos tipo de exames
+Route::get('/examtype', 'ExamtypeController@index')->name('examtype.index');
+Route::get('/examtype/search', 'ExamtypeController@search')->name('examtype.search');
+Route::get('/examtype/create', 'ExamtypeController@create')->name('examtype.create');
+Route::post('/examtype', 'ExamtypeController@store')->name('examtype.store');
+Route::get('/examtype/{id}/edit', 'ExamtypeController@edit')->name('examtype.edit');
+Route::get('/examtype/{id}', 'ExamtypeController@show')->name('examtype.show');
+Route::put('/examtype/{id}', 'ExamtypeController@update')->name('examtype.update');
+Route::delete('/examtype/delete/{id}', 'ExamtypeController@destroy')->name('examtype.delete');
+//Routas de exames
+Route::get('/exam', 'ExamController@index')->name('exam.index');
+Route::get('/exam/create', 'ExamController@create')->name('exam.create');
+Route::get('/exam/home', 'ExamController@search')->name('exam.home');
+Route::post('/exam', 'ExamController@store')->name('exam.store');
+Route::get('/exam/{id}/edit', 'ExamController@edit')->name('exam.edit');
+Route::put('/exam/{id}', 'ExamController@update')->name('exam.update');
+Route::delete('/exam/{id}', 'ExamController@destroy')->name('exam.destroy');

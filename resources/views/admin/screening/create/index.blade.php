@@ -1,11 +1,11 @@
 @extends('layout.admin.main')
+@section('title', 'Criar triagem')
 @section('content')
     <div class="content">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <h4 class="page-title">Nova Triagem</h4>
-            </div>
-        </div>
+
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
@@ -21,7 +21,6 @@
                     @csrf
 
                     <div class="row">
-
                         <div class="col-sm-6">
                             <div class="form-group position-relative">
                                 <label>Paciente <span class="text-danger">*</span></label>
@@ -33,54 +32,49 @@
                                 <div id="patient_results" class="list-group position-absolute w-100"
                                     style="z-index: 1000;"></div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Temperatura (Cº)<span class="text-danger">*</span></label>
+                                <label>Temperatura (Cº) <span class="text-danger">*</span></label>
                                 <input type="number" step="0.1" name="temperature" class="form-control"
                                     placeholder="Temperatura" value="{{ old('temperature') }}">
                             </div>
+
+                            <div class="form-group">
+                                <label>Peso (Kg) <span class="text-danger">*</span></label>
+                                <input type="number" step="0.1" name="weight" class="form-control"
+                                    placeholder="Peso" value="{{ old('weight') }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Data</label>
+                                <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+                            </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Peso (Kg)<span class="text-danger">*</span></label>
-                                <input type="number" step="0.1" name="weight" class="form-control"
-                                    placeholder="Peso" value="{{ old('weight') }}">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Batimento Cardíaco (bpm)<span class="text-danger">*</span></label>
+                                <label>Batimento Cardíaco (bpm) <span class="text-danger">*</span></label>
                                 <input type="number" name="heartbeat" class="form-control"
                                     placeholder="Batimento Cardíaco" value="{{ old('heartbeat') }}">
                             </div>
-                        </div>
-                        <div class="col-sm-6">
+
                             <div class="form-group">
-                                <label>Pressão Arterial (mmHg)<span class="text-danger">*</span></label>
+                                <label>Pressão Arterial (mmHg) <span class="text-danger">*</span></label>
                                 <input type="text" name="blood_pressure" class="form-control"
                                     placeholder="Pressão Arterial" value="{{ old('blood_pressure') }}">
                             </div>
-                        </div>
-                        <div class="col-sm-6">
+
                             <div class="form-group">
                                 <label>Observação</label>
                                 <textarea name="observation" class="form-control" rows="3" placeholder="Obs:">{{ old('observation') }}</textarea>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Data</label>
-                                <textarea name="date" class="form-control" rows="3" placeholder="data:">{{ old('date') }}</textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-t-20 text-center">
-                        <button class="btn btn-primary submit-btn">Adicionar tipo de Consulta</button>
                     </div>
 
+                    <div class="m-t-20 text-center">
+                        <a href="{{ route('screening.index') }}" class="btn btn-secondary m-r-10">Cancelar</a>
+                        <button type="submit" class="btn btn-primary submit-btn">Cadastrar Triagem</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -92,8 +86,6 @@
 
             $('#patient_search').on('keyup', function() {
                 let term = $(this).val();
-
-                // codigo para selecionar paciente....
                 $('#patient_id').val('');
 
                 if (term.length < 2) {
@@ -116,14 +108,12 @@
                 });
             });
 
-            // Selecionar paciente da lista
             $(document).on('click', '.patient-item', function(e) {
                 e.preventDefault();
                 $('#patient_search').val($(this).data('name'));
                 $('#patient_id').val($(this).data('id'));
                 $('#patient_results').empty();
             });
-
 
             $(document).on('click', function(e) {
                 if (!$(e.target).closest('#patient_search, #patient_results').length) {

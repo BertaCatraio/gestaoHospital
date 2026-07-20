@@ -1,5 +1,5 @@
 @extends('layout.admin.main')
-
+@section('title', 'Consultas')
 @section('content')
 
 <div class="content">
@@ -95,6 +95,7 @@
                                                     <i class="fa fa-pencil m-r-5"></i>
                                                     Editar
                                                 </a>
+
                                                 <form action="{{ route('queries.destroy', $queries->id) }}" method="POST" onsubmit="return confirm('Tem a certeza que deseja eliminar esta consulta?');">
 
                                                     @csrf

@@ -13,10 +13,9 @@ class QueriesController extends Controller
     public function index()
     {
         $queries = Queries::with(['patient', 'doctor', 'queriesType'])->get();
-
+        //objeto esta-se a class model atraves do metodo all da ORM(objecto, relacional, Model ) da model que serve para organizar de forma automatica a base de dados//
         return view('admin.queries.list.index', compact('queries'));
     }
-
 
     public function create()
     {
@@ -30,7 +29,6 @@ class QueriesController extends Controller
             'queriesTypes'
         ));
     }
-
 
     public function store(Request $request)
     {

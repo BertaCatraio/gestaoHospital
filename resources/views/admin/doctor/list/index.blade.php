@@ -1,4 +1,5 @@
 @extends('layout.admin.main')
+@section('title', 'doctores')
 @section('content')
     <div class="content">
 

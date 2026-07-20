@@ -106,4 +106,15 @@ class PatientController extends Controller
 
         return redirect('/patient')->with('success_delete', 'Paciente eliminado com sucesso!');
     }
+   //metodo para adicionar botao de pesquisa na triagem e no exame
+   //public function search(Request $request)
+  /* {
+       $term = $request->get('term', $request->get('q'));
+
+       $patients = Patient::where('name', 'LIKE', "%{$term}%")
+           ->limit(10)
+           ->get(['id', 'name']);
+
+       return response()->json($patients);
+   }*/
 }
